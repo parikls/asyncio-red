@@ -1,0 +1,5 @@
+include *.md
+include setup.py
+include requirements.txt
+include asyncio_red/consumer/streams/xtrim.lua
+global-exclude *pyc

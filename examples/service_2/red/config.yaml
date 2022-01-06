@@ -1,0 +1,3 @@
+app_name: service_2
+aws:
+   bucket: dev-data-scouts-event-schema
