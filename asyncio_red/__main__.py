@@ -1,3 +1,4 @@
+import sys, os
 import asyncio
 from argparse import ArgumentParser
 
@@ -18,6 +19,7 @@ def main():
     init_parser.add_argument("--s3-bucket", type=str, required=True)
 
     args = parser.parse_args()
+    sys.path.append(os.getcwd())  # add current dir to PYTHONPATH, so we'll be able to find RED dir
     if args.cmd == 'init':
         init(args)
     elif args.cmd == 'push':
