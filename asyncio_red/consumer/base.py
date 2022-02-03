@@ -97,6 +97,6 @@ class BaseConsumer:
                 )
                 error_handler = self._registry[event_name]["error_handler"]
                 try:
-                    await error_handler(red_error)
+                    await error_handler(event, red_error)
                 except Exception:  # noqa
                     logger.exception(f"{self}: Unhandled error occurred during error-handling")
