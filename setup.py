@@ -16,7 +16,7 @@ with requirements_path.open() as f:
 
 setup(
     name='asyncio-red',
-    version='0.3.1',
+    version='0.3.2',
     description='asyncio RED',
     long_description=README,
     long_description_content_type='text/markdown',

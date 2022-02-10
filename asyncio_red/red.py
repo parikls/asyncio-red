@@ -87,8 +87,7 @@ class RED:
 
         def prepare_payload(event: BaseEvent) -> Dict:
             """ Prepares both header and body """
-            event_name = event.schema()['title']
-            header = Header(sender=self.app_name, name=event_name)
+            header = Header(sender=self.app_name, name=event.__name__)
             return {"header": header.dict(), "body": event.dict()}
 
         def list_dispatch(event: BaseEvent):
@@ -136,7 +135,7 @@ class RED:
         :param kwargs: consumer kwargs. see particular consumer docs for more info
         """
         # persist event to a registry
-        event_name = event.schema()['title']
+        event_name = event.__name__
 
         if via == Via.LIST:
             consumer_key = kwargs['list_name']
