@@ -70,7 +70,8 @@ class RED:
                 event: Type[BaseEvent],
                 via: Via,
                 target_name: str,
-                max_tries: int = 5):
+                max_tries: int = 5,
+                dumps: Callable = json.dumps):
         """
         Register outgoing event. Basically this method just assign appropriate dispatch method
         to an event and create a shortcut so event can be dispatched using next flow, e.g.:
@@ -87,23 +88,23 @@ class RED:
 
         def prepare_payload(event: BaseEvent) -> Dict:
             """ Prepares both header and body """
-            header = Header(sender=self.app_name, name=event.__name__)
+            header = Header(sender=self.app_name, name=event.__class__.__name__)
             return {"header": header.dict(), "body": event.dict()}
 
         def list_dispatch(event: BaseEvent):
             """ Dispatch to list """
             payload = prepare_payload(event)
-            return self.redis_cli.lpush(target_name, json.dumps({'event': payload}))
+            return self.redis_cli.lpush(target_name, dumps({'event': payload}))
 
         def channels_dispatch(event):
             """ Dispatch to channel """
             payload = prepare_payload(event)
-            return self.redis_cli.publish(target_name, json.dumps({'event': payload}))
+            return self.redis_cli.publish(target_name, dumps({'event': payload}))
 
         def streams_dispatch(event):
             """ Dispatch to stream """
             payload = prepare_payload(event)
-            return self.redis_cli.xadd(target_name, {'event': json.dumps(payload)})
+            return self.redis_cli.xadd(target_name, {'event': dumps(payload)})
 
         if via == Via.LIST:
             func = list_dispatch
