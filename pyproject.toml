@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "asyncio-red"
+version = "0.3.4"
+description = "asyncio-red"
+authors = ["Dmytro Smyk <porovozls@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "asyncio_red"}]
+include = ['asyncio_red/backend/streams/xtrim_acked.lua']
+
+
+[tool.poetry.scripts]
+asyncio_red = 'asyncio_red.__main__:main'
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4"
+redis = "<6"
+pydantic = "<3"
+backoff = "<3"
+
+
+[tool.poetry.group.tests]
+optional = true
+
+[tool.poetry.group.tests.dependencies]
+pytest = ">=5,<7"
+
+[tool.poetry.group.registry]
+optional = true
+
+[tool.poetry.group.registry.dependencies]
+datamodel-code-generator = "^0.21.4"
+aioboto3 = "^11.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

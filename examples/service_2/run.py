@@ -1,6 +1,6 @@
 import asyncio
 
-from aioredis import Redis
+from redis.asyncio import Redis
 from asyncio_red import RED, Via
 from examples.service_2.red.registry.service_1 import EventViaList, EventViaChannel, EventViaStream
 

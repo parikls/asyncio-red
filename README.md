@@ -19,7 +19,7 @@ Simple producer
 ---------------
 
 ```python
-from aioredis import Redis
+from redis.asyncio import Redis
 from asyncio_red import RED, Via, BaseEvent
 from pydantic import Field
 
@@ -69,7 +69,7 @@ Simple consumer
 --------------
 
 ```python
-from aioredis import Redis
+from redis.asyncio import Redis
 from asyncio_red import RED, Via, BaseEvent
 from pydantic import Field
 

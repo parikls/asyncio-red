@@ -4,14 +4,13 @@
 
 from __future__ import annotations
 
-from typing import Any
+from pydantic import Field, RootModel
 
 from asyncio_red.events import BaseEvent
-from pydantic import Field
 
 
-class Service1Schema(BaseEvent):
-    __root__: Any = Field(..., title='service_1 schema')
+class Service1Schema(RootModel):
+    pass
 
 
 class EventViaList(BaseEvent):

@@ -2,7 +2,7 @@ import logging
 from asyncio import Event
 from typing import Dict, Tuple, Any, Callable, Type, Collection
 
-from aioredis import Redis
+from redis.asyncio import Redis
 from pydantic import ValidationError
 
 from asyncio_red.errors import InvalidEventError, EventHandlingError

@@ -7,7 +7,7 @@ from enum import IntEnum
 from typing import Type, Generator, Optional, Dict, Callable, Union, Collection
 
 import backoff
-from aioredis import Redis, RedisError
+from redis.asyncio import Redis, RedisError
 from typing_extensions import Awaitable
 
 from asyncio_red.consumer.base import BaseConsumer

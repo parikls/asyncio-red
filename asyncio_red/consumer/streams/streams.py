@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import List, Tuple, Dict, Optional
 from uuid import uuid4
 
-from aioredis import ResponseError, RedisError
+from redis.asyncio import ResponseError, RedisError
 
 from asyncio_red.consumer.base import BaseConsumer
 from asyncio_red.errors import RedError, MalformedEventError, InvalidEventError

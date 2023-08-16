@@ -5,7 +5,7 @@ from asyncio import CancelledError
 from typing import Dict, Optional
 
 import backoff
-from aioredis import RedisError
+from redis.asyncio import RedisError
 
 from asyncio_red.consumer.base import BaseConsumer
 from asyncio_red.errors import InvalidEventError, MalformedEventError
