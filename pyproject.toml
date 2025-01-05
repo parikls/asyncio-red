@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "asyncio-red"
-version = "0.3.6"
+version = "0.3.7"
 description = "asyncio-red"
 authors = ["Dmytro Smyk <porovozls@gmail.com>"]
 license = "MIT"
