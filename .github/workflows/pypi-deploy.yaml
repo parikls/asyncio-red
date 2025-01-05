@@ -3,7 +3,7 @@ name: PyPi Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
 
