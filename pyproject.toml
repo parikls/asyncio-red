@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "asyncio-red"
-version = "0.3.4"
+version = "0.3.6"
 description = "asyncio-red"
 authors = ["Dmytro Smyk <porovozls@gmail.com>"]
 license = "MIT"
@@ -13,7 +13,7 @@ include = ['asyncio_red/backend/streams/xtrim_acked.lua']
 asyncio_red = 'asyncio_red.__main__:main'
 
 [tool.poetry.dependencies]
-python = ">=3.11,<4"
+python = "^3.12"
 redis = "<6"
 pydantic = "<3"
 backoff = "<3"
